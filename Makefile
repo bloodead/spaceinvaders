@@ -6,7 +6,8 @@ SRCS = main.cpp	\
 	rect_img.cpp \
 	rect_color.cpp \
 	color.cpp	\
-	eventSDL.cpp
+	eventSDL.cpp	\
+	gamecore.cpp
 OBJS = ${SRCS:.cpp=.o}
 LDFLAGS = -lSDL -lSDL_image -lSDL_ttf
 CFLAGS = -W -Werror -Wall -Wextra -std=c++11
