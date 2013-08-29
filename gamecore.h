@@ -3,6 +3,8 @@
 #include <SDL/SDL.h>
 #include "create_text.h"
 #include "color.h"
+#include "sdl_init.h"
+#include "player.h"
 
 namespace game
 {
@@ -11,11 +13,15 @@ namespace game
 		private:
 			int	mouseX;
 			int	mouseY;
-			sdl::create_text*	start;
-			SDL_Surface*		ecran;
+			int	status;
+			sdl::create_text*	score;
+			int	frame;
 		public:
-			gamecore(sdl::create_text& text,SDL_Surface*	ecran);
-		
+			gamecore();
+			int	get_Status();
+			void	set_Status(int code);
+			void	show_ui(sdl::createwin& ecran,game::player&	player);
+			int	frame_count();
 	};
 }
 

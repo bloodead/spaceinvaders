@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "sdl_init.h"
-using namespace std;
+
 
 
 namespace sdl
@@ -13,8 +13,10 @@ namespace sdl
 	{
 		private:
 			SDL_Rect	rect;
+			SDL_Color*	colord;
 		public:
 			rect_color(sdl::createwin& win,SDL_Color color,int x,int y, int w, int h);
+			void rect_color_move(sdl::createwin&	win,int x,int y, SDL_Color color, Uint16 w, Uint16  h);
 	};
 }
 

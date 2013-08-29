@@ -1,5 +1,8 @@
 #include "sdl_init.h"
 
+
+using namespace std;
+
 sdl::createwin::createwin(int w, int h,string title)
 {
 	char * buffer = new char[title.length()+1];
@@ -40,3 +43,13 @@ void sdl::createwin::refresh()
 	SDL_Flip(ecran);
 }
 
+void sdl::createwin::refresh_zone(int x, int y, int w, int h)
+{
+	SDL_Rect	rect;
+	rect.x = x;
+	rect.y = y;
+	rect.w = w;
+	rect.h = h;
+
+	SDL_FillRect(ecran,&rect,SDL_MapRGB(ecran->format,0,0,0));
+}

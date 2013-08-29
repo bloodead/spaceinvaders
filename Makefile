@@ -7,13 +7,17 @@ SRCS = main.cpp	\
 	rect_color.cpp \
 	color.cpp	\
 	eventSDL.cpp	\
-	gamecore.cpp
+	gamecore.cpp	\
+	player.cpp	\
+	ennemy.cpp	\
+	lineEnnemy.cpp
 OBJS = ${SRCS:.cpp=.o}
-LDFLAGS = -lSDL -lSDL_image -lSDL_ttf
-CFLAGS = -W -Werror -Wall -Wextra -std=c++11
+LDFLAGS = -g3 -W -Werror -Wall -Wextra
+LIBRARIES =  -lSDL -lSDL_image -lSDL_ttf
+CXXFLAGS = -W -Werror -Wall -Wextra 
 
 go : ${OBJS}
-	 g++-4.8 $(CFLAGS) -o $(NAME) $(SRCS) ${LDFLAGS}
+	 g++-4.8 $(LDFLAGS) -o $(NAME) $(OBJS) ${LIBRARIES}
 
 clean:
 	rm -f *.o

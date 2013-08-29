@@ -5,7 +5,7 @@
 #include <SDL/SDL_ttf.h>
 #include <iostream>
 #include <string>
-using namespace std;
+
 
 
 namespace sdl
@@ -17,9 +17,10 @@ namespace sdl
 		public:
 			createwin();
 			~createwin();
-			createwin(int w, int h, string title);
+			createwin(int w, int h, std::string title);
 			void	refresh();
 			SDL_Surface*	getsurface();
+			void	refresh_zone(int x, int y, int h, int w);
 	};
 
 }
