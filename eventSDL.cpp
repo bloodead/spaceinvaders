@@ -12,7 +12,13 @@ int sdl::event_sdl::event_listen()
 				return 2;
 			case SDL_KEYDOWN:
 				if (keystate[SDLK_UP])
-					cout << "TOUCHE HAUT PRESSED" << endl;
+					return 10;
+				if (keystate[SDLK_DOWN])
+					return 11;
+				if (keystate[SDLK_LEFT])
+					return 12;
+				if (keystate[SDLK_RIGHT])
+					return 13;
 		}
 	return 0;
 }

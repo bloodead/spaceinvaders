@@ -11,7 +11,7 @@ namespace sdl
 		public:
 			color();
 			SDL_Color	getcolor();
-			color(int r,int g,int b);
+			color(Uint8 r,Uint8 g,Uint8 b);
 	};
 }
 

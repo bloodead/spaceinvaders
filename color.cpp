@@ -7,7 +7,7 @@ sdl::color::color()
 	colorRGB.b=255;
 }
 
-sdl::color::color(int r,int g,int b)
+sdl::color::color(Uint8 r,Uint8 g,Uint8 b)
 {
 	colorRGB.r=r;
 	colorRGB.g=g;

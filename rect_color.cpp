@@ -14,7 +14,7 @@ sdl::rect_color::rect_color(sdl::createwin& win,SDL_Color color, int x, int y, i
 	SDL_Flip(win.getsurface());
 }
 
-void sdl::rect_color::rect_color_move(sdl::createwin& win,int x, int y,SDL_Color color,Uint16 w,Uint16  h)
+void sdl::rect_color::rect_color_move(SDL_Color color,sdl::createwin& win,Sint16  x, Sint16 y,Uint16 w,Uint16  h)
 {
 	using std::cout;
 	using std::endl;
@@ -25,7 +25,7 @@ void sdl::rect_color::rect_color_move(sdl::createwin& win,int x, int y,SDL_Color
 	rect.w = w;
 	rect.h = h;
 
-	SDL_FillRect(win.getsurface(),&rect,SDL_MapRGB(win.getsurface()->format,color.r,color.g,color.b));
+	SDL_FillRect(win.getsurface(),&rect,SDL_MapRGB(win.getsurface()->format,(Uint8)color.r,(Uint8)color.g,(Uint8)color.b));
 }
 
 

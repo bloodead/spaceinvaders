@@ -16,7 +16,7 @@ namespace sdl
 			SDL_Color*	colord;
 		public:
 			rect_color(sdl::createwin& win,SDL_Color color,int x,int y, int w, int h);
-			void rect_color_move(sdl::createwin&	win,int x,int y, SDL_Color color, Uint16 w, Uint16  h);
+			void rect_color_move(SDL_Color color, sdl::createwin&	win,Sint16 x,Sint16 y, Uint16 w, Uint16  h);
 	};
 }
 

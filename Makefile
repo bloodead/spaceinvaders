@@ -10,11 +10,12 @@ SRCS = main.cpp	\
 	gamecore.cpp	\
 	player.cpp	\
 	ennemy.cpp	\
-	lineEnnemy.cpp
+	lineEnnemy.cpp	\
+	weapon.cpp
 OBJS = ${SRCS:.cpp=.o}
 LDFLAGS = -g3 -W -Werror -Wall -Wextra
 LIBRARIES =  -lSDL -lSDL_image -lSDL_ttf
-CXXFLAGS = -W -Werror -Wall -Wextra 
+CXXFLAGS = -W -Werror -Wall -Wextra -g
 
 go : ${OBJS}
 	 g++-4.8 $(LDFLAGS) -o $(NAME) $(OBJS) ${LIBRARIES}

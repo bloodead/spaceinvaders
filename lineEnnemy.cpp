@@ -9,8 +9,10 @@ game::line::line(sdl::createwin& ecran)
 	decal = 100;
 	count = 0;
 	enddecal = 200;
+	speedfire = 20;
+	time = 0;
 
-	while (count != 6)
+	while (count != 8)
 	{
 		lineEnnemy[count] = new game::ennemy(decal,100,ecran,decal,700 - enddecal);
 		decal = decal + 40;
@@ -21,16 +23,54 @@ game::line::line(sdl::createwin& ecran)
 }
 
 
-void	game::line::move(sdl::createwin& ecran)
+void	game::line::move(sdl::createwin& ecran,game::weapon_player& weapon,game::player& player)
 {
 	int	count;
 
-	count= 0;
+	count= 0;	
 
-	while (count != 6)
+	fire_rand(ecran);
+	while (count != 8)
 	{
-		lineEnnemy[count]->move(ecran);
-		count = count + 1;
+		if (lineEnnemy[count]->get_status() == 1)
+		{
+			lineEnnemy[count]->update_fire(ecran);	
+			lineEnnemy[count]->move(ecran);
+			lineEnnemy[count]->detect_weapon(ecran,weapon,player);
+			player.detect_attack(ecran,lineEnnemy[count]->get_weapon());
+		}
+		
+			count = count + 1;
 	}	
+
+}
+
+
+void	game::line::fire_rand(sdl::createwin& ecran)
+{
+
+	if(time == speedfire)
+	{
+		int	num;
+		num = rand() % 8;
+		std::cout << num << std::endl;
+		lineEnnemy[num]->fire(ecran);
+		time = 0;
+	}
+	time = time + 1;	
+		
+}
+
+
+game::line::~line()
+{
+
+	for(int i=0; i<8; i++)
+	{
+		if (lineEnnemy[i] != NULL)
+		{
+			delete lineEnnemy[i];
+		}
+	}
 
 }

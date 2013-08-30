@@ -29,6 +29,7 @@ void	game::gamecore::show_ui(sdl::createwin& ecran, game::player& player)
 	std::ostringstream oss;
 	oss << "Score : " << player.get_score();
 	std::string result = oss.str();
+	ecran.refresh_zone(0,0,500,80);
 	sdl::create_text	scoreTmp(result,"HungerGames.ttf",white.getcolor(),0,0,ecran.getsurface());
 }
 

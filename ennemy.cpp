@@ -1,4 +1,5 @@
 #include "ennemy.h"
+#include <iostream>
 
 
 game::ennemy::ennemy(int	x, int	y, sdl::createwin&	ecran,int	start,	int	end)
@@ -11,13 +12,33 @@ game::ennemy::ennemy(int	x, int	y, sdl::createwin&	ecran,int	start,	int	end)
 	startline = start;
 	endline	= end;
 	sensline = 0;
+	status = 1;
 
+}
+
+game::weapon_ennemy&	game::ennemy::get_weapon()
+{
+	return weapon_e;
+}
+
+void	game::ennemy::fire(sdl::createwin&      ecran)
+{
+	weapon_e.fire(ecran,posX,posY);
+}
+
+void	game::ennemy::update_fire(sdl::createwin&      ecran)
+{
+	weapon_e.refresh_pos(ecran);
 }
 
 
 void	game::ennemy::move(sdl::createwin&      ecran)
 {
-	sdl::color	vert(0,255,0);
+	SDL_Color	vert;
+
+	vert.r = 0;
+	vert.g = 255;
+	vert.b = 0;
 
 
 	if (sensline == 0)
@@ -45,6 +66,25 @@ void	game::ennemy::move(sdl::createwin&      ecran)
 
 
 	}
-	std::cout << endline  << std::endl;
-	rect->rect_color_move(ecran, posX, posY,vert.getcolor(),20,20);
+	
+	rect->rect_color_move(vert,ecran, posX, posY,20,20);
+}
+
+void	game::ennemy::detect_weapon(sdl::createwin& ecran,game::weapon_player& weapon, game::player&   player)
+{
+	if (weapon.get_pos(1) >= posX - 5 && weapon.get_pos(1) <= posX + 20 && weapon.get_pos(2) >= posY && weapon.get_pos(2) <= posY + 20)
+		{
+			std::cout << "toucher Couler XD" << std::endl;	
+			weapon.toucher(ecran);
+			ecran.refresh_zone(posX,posY,20, 20);
+			player.change_score(ecran,20);
+			status = 0;
+			
+		}
+	
+}
+
+int	game::ennemy::get_status()
+{
+	return status;
 }
