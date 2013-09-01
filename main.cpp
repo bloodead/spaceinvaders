@@ -39,7 +39,6 @@ int	main(int ,char*[])
 			if(gamespace.frame_count())
 			{
 				line1.move(sdlsimple,weapon,player);
-				std::cout << "SCORE : " << player.get_score() << endl;
 				player.move(sdlsimple, event.event_listen());	
 
 				if (event.event_listen() == 10)

@@ -18,7 +18,7 @@ LIBRARIES =  -lSDL -lSDL_image -lSDL_ttf
 CXXFLAGS = -W -Werror -Wall -Wextra -g
 
 go : ${OBJS}
-	 g++-4.8 $(LDFLAGS) -o $(NAME) $(OBJS) ${LIBRARIES}
+	 g++ $(LDFLAGS) -o $(NAME) $(OBJS) ${LIBRARIES}
 
 clean:
 	rm -f *.o

@@ -105,6 +105,7 @@ void	game::weapon_ennemy::fire(sdl::createwin& ecran,int x, int y)
 int	game::weapon_player::toucher(sdl::createwin& ecran)
 {
 		status = 0;
+		std::cout << "CLEAN ARME PIXEL " << posX << " : : " << posY << std::endl;
 		ecran.refresh_zone(posX,posY,5,5);
 		posX = 0;
 		posY = 0;

@@ -62,10 +62,10 @@ void	game::player::change_score(sdl::createwin& ecran, int	s)
 
 void    game::player::detect_attack(sdl::createwin& ecran, game::weapon_ennemy& weapon)
 {
-	if (weapon.get_pos(1) >= posX && weapon.get_pos(1) + 5 <= posX + 20 && weapon.get_pos(2) + 5  >= posY && weapon.get_pos(2) <= posY + 20) 
+	if (weapon.get_pos(1) + 5 >= posX && weapon.get_pos(1) <= posX + 20 && weapon.get_pos(2) + 5  >= posY && weapon.get_pos(2) <= posY + 20) 
 	{
 		std::cout << "TOUCHED HAHAHAHAHAHAHA" << std::endl;
-		ecran.getsurface();
+		weapon.toucher(ecran);
 	}
 
 }
