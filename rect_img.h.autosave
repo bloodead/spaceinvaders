@@ -18,7 +18,7 @@ namespace sdl
 			char		*path;
 		public:
 			rect_img(string pathimg,SDL_Surface *ecran);
-			~rect_img();
+            ~rect_img();
             rect_img(string pathimg,SDL_Surface *ecran, Sint16 x, Sint16 y, Uint16 w, Uint16 h, Sint16 ximg, Sint16 yimg);
 			void    rect_img_move(int x, int y, SDL_Surface *ecran);
 			void    refresh();

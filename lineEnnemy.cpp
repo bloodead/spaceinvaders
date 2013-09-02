@@ -1,6 +1,6 @@
 #include "lineEnnemy.h"
 
-game::line::line(sdl::createwin& ecran)
+game::line::line(sdl::createwin& ecran, int y)
 {
 	int	count;
 	int	decal;
@@ -14,7 +14,7 @@ game::line::line(sdl::createwin& ecran)
 
 	while (count != 8)
 	{
-		lineEnnemy[count] = new game::ennemy(decal,100,ecran,decal,700 - enddecal);
+		lineEnnemy[count] = new game::ennemy(decal,y,ecran,decal,700 - enddecal);
 		decal = decal + 40;
 		enddecal = enddecal - 40;
 		count = count + 1;
@@ -29,7 +29,6 @@ void	game::line::move(sdl::createwin& ecran,game::weapon_player& weapon,game::pl
 
 	count= 0;	
 
-	fire_rand(ecran);
 	while (count != 8)
 	{
 		if (lineEnnemy[count]->get_status() == 1)
@@ -54,6 +53,7 @@ void	game::line::fire_rand(sdl::createwin& ecran)
 		int	num;
 		num = rand() % 8;
 		std::cout << num << std::endl;
+		if (lineEnnemy[num]->get_status() != 0)
 		lineEnnemy[num]->fire(ecran);
 		time = 0;
 	}

@@ -1,5 +1,5 @@
 #ifndef _LINEENNEMY_H_
-#define _LINEENNEMT_H_
+#define _LINEENNEMY_H_
 #include "ennemy.h"
 #include "sdl_init.h"
 #include <iostream>
@@ -17,7 +17,7 @@ namespace game
 			int	speedfire;
 			int	time;
 		public:
-			line(sdl::createwin&	ecran);
+			line(sdl::createwin&	ecran,  int y);
 			~line();
 			void	move(sdl::createwin& ecran,game::weapon_player& weapon,game::player& player);
 			void    fire_rand(sdl::createwin& ecran);

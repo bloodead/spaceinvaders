@@ -25,9 +25,12 @@ void game::weapon_player::refresh_pos(sdl::createwin& ecran)
 		if (posY <= 50)
 		{
 			status = 0;
+			posX = 0;
+			posY = 0;
 			return;
 		}
 		posY = posY - 20;
+		std::cout << "ARME REDRAW" << std::endl;
 		rect->rect_color_move(cyan.getcolor(),ecran, posX, posY,5,5);
 		
 	}
@@ -44,6 +47,8 @@ void game::weapon_ennemy::refresh_pos(sdl::createwin& ecran)
 		if (posY >= 680)
 		{
 			status = 0;
+			posX = 0;
+			posY = 0;
 			return;
 		}
 		posY = posY + 20;

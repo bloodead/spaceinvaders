@@ -11,7 +11,8 @@ SRCS = main.cpp	\
 	player.cpp	\
 	ennemy.cpp	\
 	lineEnnemy.cpp	\
-	weapon.cpp
+	weapon.cpp	\
+	packEnnemy.cpp
 OBJS = ${SRCS:.cpp=.o}
 LDFLAGS = -g3 -W -Werror -Wall -Wextra
 LIBRARIES =  -lSDL -lSDL_image -lSDL_ttf
